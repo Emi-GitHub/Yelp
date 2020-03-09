@@ -47,3 +47,14 @@
     right: 20px;
     font-size: small;
 }
+.site-link {
+    color:white
+}
+.site-link:hover {
+    color: orange
+}
+.button-site {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+}

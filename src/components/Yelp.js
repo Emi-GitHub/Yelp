@@ -12,6 +12,7 @@ class Yelp extends Component {
     onSubmit = event => {
         event.preventDefault(); 
         this.props.fetchApi(this.props.term);
+        console.log(this.props.counter)
     }
     render() {
         console.log('businesses in yelp',this.props.businesses)

@@ -5,8 +5,8 @@ import '../Style/BusinessesList.css';
 
 class BusinessesList extends Component {
     render() {
-        const list = this.props.businesses.map( item => {
-            return <BusinessesItem item={item} key={item.id}/>;
+        const list = this.props.businesses.map( (item, i) => {
+            return <BusinessesItem item={item} key={item.id} i={i}/>;
         });
         return (
             <div>

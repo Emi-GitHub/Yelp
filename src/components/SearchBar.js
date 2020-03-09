@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { setTerm, fetchApi, setOpenYelp } from '../actions';
+import { setTerm, fetchApi, setOpenYelp} from '../actions';
 import '../Style/SearchBar.css';
 
 class SearchBar extends Component {
@@ -20,7 +20,7 @@ class SearchBar extends Component {
                         <img src="./yelp.png" alt="yelp icon" className="yelp-icon"/>
                     </div>
                     <div className="field container">
-                        <div className="ui icon input focus">
+                        <div className="ui icon input focus search-input">
                             <input
                                 type="text"
                                 value={this.props.term}
