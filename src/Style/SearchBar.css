@@ -35,3 +35,8 @@
   top: 32%;
   width: 200px;
 }
+.search-icon {
+  top: 50% !important;
+  transform: translateY(-50%);
+  right: 20px !important;
+}

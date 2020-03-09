@@ -1,0 +1,28 @@
+.yelp-icon-yelp {
+    width: 100px;
+    padding-bottom: 8px;
+}
+.yelp-icon-div-yelp {
+    top: 50%;
+}
+.background-yelp {
+    background-image: url("../pictures/food1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1600px;
+    width: auto;
+}
+.background-margins {
+    padding-top: 10px;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.go-back {
+    font-size: 18px;
+    color: white;
+    font-family: 'Bellota Text', cursive;
+}
+.go-back:hover {
+    color: brown;
+}

@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setTerm } from '../actions';
-import { fetchApi } from '../actions';
+import { Redirect } from 'react-router-dom';
+import { setTerm, fetchApi, setOpenYelp } from '../actions';
 import '../Style/SearchBar.css';
 
 class SearchBar extends Component {
     onSubmit = event => {
         event.preventDefault(); 
-        this.props.fetchApi(this.props.term); 
+        this.props.setOpenYelp(true);
     }
     onChange = event => {
-        this.props.setTerm(event.target.value)
+        this.props.setTerm(event.target.value);
     }
     render() {
-        console.log('businesses',this.props.businesses)
         return (
             <div className="background">
                 <form onSubmit={this.onSubmit} className="ui form">
@@ -29,10 +28,11 @@ class SearchBar extends Component {
                                 placeholder="Find burgers, barbers, spas, handymen..."
                                 className="text-input"
                             />   
-                            <i className="inverted circular search link icon" onClick={this.onSubmit}></i>
+                            <i className="inverted circular search link icon search-icon" onClick={this.onSubmit}></i>
                         </div>
                     </div>
                 </form>
+                {this.props.openYelp ? <Redirect to="Yelp" /> : null}
             </div>
         )
     }
@@ -40,7 +40,7 @@ class SearchBar extends Component {
 const mapStateToProps = state => {
     return {
         term: state.term,
-        businesses: state.businesses
+        openYelp: state.openYelp
     }
 }
-export default connect(mapStateToProps, {setTerm, fetchApi})(SearchBar);
+export default connect(mapStateToProps, {setTerm, fetchApi, setOpenYelp})(SearchBar);

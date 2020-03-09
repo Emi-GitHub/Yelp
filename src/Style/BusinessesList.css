@@ -1,0 +1,49 @@
+.cards-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.item-cover {
+    background-color: aliceblue;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.92);
+}
+.yelp-picture {
+    width: 180px;
+    height: 190px;
+}
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.child-1 {
+    width: 15%;
+}
+.child-2 {
+    width: 85%;
+    padding-left: 15px;
+    position: relative;
+}
+.card-photo {
+    height: 230px;
+    width: 100%;
+    background-size: cover;
+    background-position: center; 
+}
+.location {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: small;
+}
