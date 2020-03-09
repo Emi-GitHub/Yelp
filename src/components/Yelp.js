@@ -31,7 +31,7 @@ class Yelp extends Component {
                                     placeholder="Find burgers, barbers, spas, handymen..."
                                     className="text-input"
                                 />   
-                                <i className="inverted circular search link icon" onClick={this.onSubmit}></i>
+                                <i className="inverted circular search link icon search-icon" onClick={this.onSubmit}></i>
                             </div>
                         </div>
                     </form>

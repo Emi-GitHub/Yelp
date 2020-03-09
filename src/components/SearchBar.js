@@ -20,7 +20,7 @@ class SearchBar extends Component {
                         <img src="./yelp.png" alt="yelp icon" className="yelp-icon"/>
                     </div>
                     <div className="field container">
-                        <div className="ui icon input focus search-input">
+                        <div className="ui icon input focus">
                             <input
                                 type="text"
                                 value={this.props.term}
@@ -28,7 +28,7 @@ class SearchBar extends Component {
                                 placeholder="Find burgers, barbers, spas, handymen..."
                                 className="text-input"
                             />   
-                            <i className="inverted circular search link icon search-icon" onClick={this.onSubmit}></i>
+                            <i className="inverted circular search link icon search-icon" onClick={()=>this.props.setOpenYelp(true)}></i>
                         </div>
                     </div>
                 </form>
