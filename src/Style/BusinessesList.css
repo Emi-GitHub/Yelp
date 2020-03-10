@@ -5,7 +5,6 @@
     flex-wrap: wrap;
 }
 .item-cover {
-    background-color: aliceblue;
     margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 20px;
@@ -16,6 +15,10 @@
     padding-right: 10px;
     border-radius: 6px;
     background-color: rgba(255, 255, 255, 0.92);
+    border: 2px solid whitesmoke;
+}
+.item-cover:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .yelp-picture {
     width: 180px;
@@ -28,24 +31,32 @@
     flex-wrap: wrap;
 }
 .child-1 {
-    width: 15%;
+    width: 25%;
 }
 .child-2 {
-    width: 85%;
+    width: 75%;
     padding-left: 15px;
     position: relative;
+    padding-left: 27px;
+    padding-top: 9px;
 }
 .card-photo {
-    height: 230px;
+    height: 180px;
     width: 100%;
     background-size: cover;
     background-position: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 7px;
 }
 .location {
     position: absolute;
     top: 10px;
     right: 20px;
     font-size: small;
+    text-align: right;
 }
 .site-link {
     color:white
@@ -57,4 +68,26 @@
     position: absolute;
     bottom: 10px;
     right: 0px;
+}
+.header {
+    margin-left: 25px;
+}
+.star-icon {
+    background-color:  #f43939;
+    padding-bottom: 20px;
+    padding-right: 18px;
+    padding-left: 3px;
+    margin-left: 1px !important;
+    border-radius: 5px;
+    color: white;
+    background: linear-gradient(to right,  #f43939 55%, lightgray 45%);
+}
+.half-icon {
+    background: linear-gradient(to right,  #f43939 55%, lightgray 45%);
+    padding-bottom: 20px;
+    padding-right: 18px;
+    padding-left: 3px;
+    margin-left: 1px !important;
+    border-radius: 5px;
+    color: white;
 }

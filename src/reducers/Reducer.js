@@ -22,3 +22,15 @@ export const goHome = (state = false, action) => {
         default: return state;
     }
 };
+export const lat = (state = 32.715736, action) => {
+    switch(action.type) {
+        case 'SET_LAT': return action.payload;
+        default: return state;
+    }
+};
+export const lng = (state = -117.161087, action) => {
+    switch(action.type) {
+        case 'SET_LNG': return action.payload;
+        default: return state;
+    }
+};

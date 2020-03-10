@@ -7,7 +7,7 @@ export const fetchApi = (term) => async dispatch => {
     const response = await axios.get(proxyurl + URL,{   
         params: {
             'term': term,
-            'limit': 5,
+            'limit': 30,
             'radius': 10000,
             'offset': 50,
             'location': 'San Diego'
@@ -34,6 +34,18 @@ export const setOpenYelp = value => {
 export const setGoHome = value => {
     return {
         type: 'SET_GO_HOME',
+        payload: value
+    }
+}
+export const setLat = value => {
+    return {
+        type: 'SET_LAT',
+        payload: value
+    }
+}
+export const setLng = value => {
+    return {
+        type: 'SET_LNG',
         payload: value
     }
 }

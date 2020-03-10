@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import BusinessesList from './BusinessesList';
 import { setGoHome, setTerm, fetchApi } from '../actions';
 import '../Style/Yelp.css';
+import MapContainer from './MapContainer';
 
 class Yelp extends Component {
     componentDidMount(){
@@ -20,30 +21,40 @@ class Yelp extends Component {
             <div className="background-yelp">
                 <div className="background-margins">
                     <form onSubmit={this.onSubmit} className="ui form">
-                        <div className="yelp-icon-div">
-                            <img src="./yelp.png" alt="yelp icon" className="yelp-icon-yelp" />
-                        </div>
-                        <div className="field">
-                            <div className="ui icon input focus">
-                                <input
-                                    type="text"
-                                    value={this.props.term}
-                                    onChange={event => this.props.setTerm(event.target.value)}
-                                    placeholder="Find burgers, barbers, spas, handymen..."
-                                    className="text-input"
-                                />   
-                                <i className="inverted circular search link icon search-icon" onClick={this.onSubmit}></i>
+                        <div className="parent-search">
+                            <div className="child-1-search">
+                                <img src="./yelp.png" alt="yelp icon" className="yelp-icon-yelp" />
+                            </div>
+                            <div child-2-search>
+                                <div className="ui big icon input search-input-yelp">
+                                    <input
+                                        type="text"
+                                        value={this.props.term}
+                                        onChange={event => this.props.setTerm(event.target.value)}
+                                        placeholder="Find burgers, barbers, spas, handymen..."
+                                    />   
+                                    <i className="search icon search-icon-yelp" onClick={this.onSubmit}></i>
+                                </div>
+                                {/*<a href="/" onClick={()=>this.props.setGoHome(true)} className="go-back">
+                                    <i className="home icon"/>
+        </a>*/}
                             </div>
                         </div>
                     </form>
-                    <div className="ui divider"></div>
-                    <a href="/" onClick={()=>this.props.setGoHome(true)} className="go-back">
-                        <i className="arrow alternate circle left outline icon"></i>
-                        Go Back To Search
-                    </a>
-                    {this.props.goHome ? <Redirect to="Yelp" /> : null}
                 </div>
-                <BusinessesList />
+                {/*<a href="/" onClick={()=>this.props.setGoHome(true)} className="go-back">
+                    <i className="arrow alternate circle left outline icon"></i>
+                    Go Back To Search
+            </a>*/}
+                {this.props.goHome ? <Redirect to="Yelp" /> : null}
+                <div className="yelp-parent">
+                    <div className="yelp-child-1">
+                        <BusinessesList />
+                    </div>
+                    <div className="yelpchild-2" style={{width:"40%", position:"fixed", right:"0", top:"130px"}}>
+                        <MapContainer />
+                    </div>
+                </div>
             </div>
         )
     }

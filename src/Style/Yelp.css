@@ -1,28 +1,69 @@
 .yelp-icon-yelp {
-    width: 100px;
+    width: 90px;
     padding-bottom: 8px;
 }
-.yelp-icon-div-yelp {
-    top: 50%;
+.search-icon-yelp {
+    background-color: #f43939;
+    color: white;
+    font-size: 25px !important;
 }
-.background-yelp {
+.parent-search {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.child-1-search {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.child-2-search {
+    width: 85%;
+}
+/*.background-yelp {
     background-image: url("../pictures/food1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 1600px;
     width: auto;
-}
+}*/
 .background-margins {
-    padding-top: 10px;
-    padding-left: 150px;
-    padding-right: 150px;
+    position: fixed;
+    background-color:white;
+    opacity: 1;
+    width: 100%;
+    top: 0;
+    z-index: 99999;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*border-bottom: 1px solid lightgray;*/
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
 }
 .go-back {
-    font-size: 18px;
-    color: white;
-    font-family: 'Bellota Text', cursive;
+    font-size: 35px;
+    color:  #f43939;
 }
 .go-back:hover {
     color: brown;
+}
+.yelp-parent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.yelp-child-1 {
+    width: 60%;
+    margin-top: 130px;
+}
+.yelp-child-2 {
+    width: 40%;
+}
+.search-input-yelp {
+    width: 500px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
 }
