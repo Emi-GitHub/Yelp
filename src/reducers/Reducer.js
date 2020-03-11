@@ -34,3 +34,33 @@ export const lng = (state = -117.161087, action) => {
         default: return state;
     }
 };
+export const header = (state = false, action) => {
+    switch(action.type) {
+        case 'SET_HEADER': return action.payload;
+        default: return state;
+    }
+};
+export const currentPage = (state = 1, action) => {
+    switch(action.type) {
+        case 'SET_CURRENT_PAGE': return action.payload;
+        default: return state;
+    }
+};
+export const postPerPage = (state = 5, action) => {
+    switch(action.type) {
+        case 'SET_POST_PER_PAGE': return action.payload;
+        default: return state;
+    }
+};
+export const termNear = (state = '', action) => {
+    switch(action.type) {
+        case 'SET_TERM_NEAR': return action.payload;
+        default: return state;
+    }
+};
+export const counter = (state = -5, action) => {
+    switch(action.type) {
+        case 'SET_COUNTER': return state+1;
+        default: return state;
+    }
+};

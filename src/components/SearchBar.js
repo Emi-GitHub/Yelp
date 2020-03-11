@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { setTerm, fetchApi, setOpenYelp} from '../actions';
+import { setTerm, fetchApi, setOpenYelp, setTermNear} from '../actions';
 import '../Style/SearchBar.css';
 
 class SearchBar extends Component {
     onSubmit = event => {
         event.preventDefault(); 
         this.props.setOpenYelp(true);
-    }
-    onChange = event => {
-        this.props.setTerm(event.target.value);
     }
     render() {
         return (
@@ -19,15 +16,24 @@ class SearchBar extends Component {
                     <div className="yelp-icon-div">
                         <img src="./yelp.png" alt="yelp icon" className="yelp-icon"/>
                     </div>
-                    <div className="field container">
-                        <div className="ui icon input focus search-input">
+                    <div className="field container parent-searchBar">
+                        <div className="ui icon input focus search-input-1">
                             <input
                                 type="text"
                                 value={this.props.term}
-                                onChange={this.onChange}
+                                onChange={event => this.props.setTerm(event.target.value)}
                                 placeholder="Find burgers, barbers, spas, handymen..."
                                 className="text-input"
                             />   
+                        </div>
+                        <div className="ui icon input focus search-input-2">
+                            <input
+                                type="text"
+                                value={this.props.termNear}
+                                onChange={event => this.props.setTermNear(event.target.value)}
+                                placeholder="Near..."
+                                className="text-input"
+                            />  
                             <i className="inverted circular search link icon search-icon" onClick={()=>this.props.setOpenYelp(true)}></i>
                         </div>
                     </div>
@@ -40,7 +46,8 @@ class SearchBar extends Component {
 const mapStateToProps = state => {
     return {
         term: state.term,
+        termNear: state.termNear,
         openYelp: state.openYelp
     }
 }
-export default connect(mapStateToProps, {setTerm, fetchApi, setOpenYelp})(SearchBar);
+export default connect(mapStateToProps, {setTerm, fetchApi, setOpenYelp, setTermNear})(SearchBar);

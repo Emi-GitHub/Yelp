@@ -1,0 +1,16 @@
+.list-number:active {
+    color: brown !important;
+}
+.list-number:hover {
+    color: brown !important;
+}
+.list-number {
+    font-size: large ;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+.item-list {
+    display: flex !important;
+    align-content: center;
+    justify-content: center !important;
+}

@@ -5,6 +5,11 @@ import { openYelp } from './Reducer';
 import { goHome } from './Reducer';
 import { lat } from './Reducer';
 import { lng } from './Reducer';
+import { header } from './Reducer';
+import { currentPage } from './Reducer';
+import { postPerPage } from './Reducer';
+import { termNear } from './Reducer';
+import { counter } from './Reducer';
 
 export default combineReducers ({
     term,
@@ -12,5 +17,10 @@ export default combineReducers ({
     openYelp,
     goHome,
     lat,
-    lng
+    lng,
+    header,
+    currentPage,
+    postPerPage,
+    termNear,
+    counter
 })

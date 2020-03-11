@@ -2,18 +2,22 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BusinessesList from './BusinessesList';
-import { setGoHome, setTerm, fetchApi } from '../actions';
+import { setGoHome, setTerm, fetchApi, setTermNear, setOpenYelp } from '../actions';
 import '../Style/Yelp.css';
 import MapContainer from './MapContainer';
 
 class Yelp extends Component {
     componentDidMount(){
-        this.props.fetchApi(this.props.term);
+        this.props.fetchApi(this.props.term, this.props.termNear);
     }
     onSubmit = event => {
         event.preventDefault(); 
-        this.props.fetchApi(this.props.term);
-        console.log(this.props.counter)
+        //this.props.setHeader(true)
+        this.props.fetchApi(this.props.term, this.props.termNear);
+    }
+    onSearch = () => {
+        //this.props.setHeader(true)
+        this.props.fetchApi(this.props.term, this.props.termNear);
     }
     render() {
         console.log('businesses in yelp',this.props.businesses)
@@ -32,20 +36,21 @@ class Yelp extends Component {
                                         value={this.props.term}
                                         onChange={event => this.props.setTerm(event.target.value)}
                                         placeholder="Find burgers, barbers, spas, handymen..."
-                                    />   
-                                    <i className="search icon search-icon-yelp" onClick={this.onSubmit}></i>
+                                    />
                                 </div>
-                                {/*<a href="/" onClick={()=>this.props.setGoHome(true)} className="go-back">
-                                    <i className="home icon"/>
-        </a>*/}
+                                <div className="ui big icon input search-input-yelp">
+                                    <input
+                                        type="text"
+                                        value={this.props.termNear}
+                                        onChange={event => this.props.setTermNear(event.target.value)}
+                                        placeholder="Near..."
+                                    />
+                                    <i className="search link icon search-icon-yelp" style={{color:"white", backgroundColor:"#f43939"}}onClick={()=>this.onSearch()}></i>
+                                </div>   
                             </div>
                         </div>
                     </form>
                 </div>
-                {/*<a href="/" onClick={()=>this.props.setGoHome(true)} className="go-back">
-                    <i className="arrow alternate circle left outline icon"></i>
-                    Go Back To Search
-            </a>*/}
                 {this.props.goHome ? <Redirect to="Yelp" /> : null}
                 <div className="yelp-parent">
                     <div className="yelp-child-1">
@@ -65,7 +70,8 @@ const mapStateToProps = state => {
         goHome: state.goHome,
         openYelp: state.openYelp,
         term: state.term,
+        termNear: state.termNear,
         businesses: state.businesses
     }
 }
-export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome})(Yelp);
+export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp})(Yelp);

@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import '../Style/BusinessesList.css';
 import _ from 'lodash';
+import { setCounter } from '../actions';
 
 class BusinessesItem extends Component {
+    /*componentDidMount(){
+        this.props.setCounter()
+    }*/
     onDivClick = () => {
         return <a 
             href={this.props.item.url} 
@@ -32,6 +36,7 @@ class BusinessesItem extends Component {
             }
             return star;
         }
+        console.log('counter', this.props.counter)
         return (
             <div className="item-cover parent" onClick={()=> window.open(this.props.item.url, "_blank")}>
                 <div className="child-1">
@@ -44,15 +49,6 @@ class BusinessesItem extends Component {
                     <br/> 
                     {this.props.item.price} . {categories}
                     <br/> 
-                    {/*<button className="ui black button button-site">
-                        <a 
-                            href={this.props.item.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="site-link"
-                        > Click to open
-                        </a> 
-                    </button>*/}
                     <div className="location">
                         {this.props.item.display_phone}
                         <br/>
@@ -70,6 +66,8 @@ class BusinessesItem extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
     businesses: state.businesses,
+    counter: state.counter,
+    currentPage: state.currentPage,
     item: state.businesses.find(item => item === ownProps.item)
 });
-export default connect(mapStateToProps)(BusinessesItem);
+export default connect(mapStateToProps, {setCounter})(BusinessesItem);
