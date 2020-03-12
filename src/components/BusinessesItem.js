@@ -43,7 +43,7 @@ class BusinessesItem extends Component {
                     <div style={backgroundImgStyle} className="card-photo"/>
                 </div>
                 <div className="child-2">
-                    <h2>{this.props.i}. {this.props.item.name}</h2>
+                    <h2>{this.props.i+this.props.counter}. {this.props.item.name}</h2>
                     {star()}
                     {this.props.item.review_count}
                     <br/> 

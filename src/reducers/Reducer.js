@@ -58,9 +58,9 @@ export const termNear = (state = '', action) => {
         default: return state;
     }
 };
-export const counter = (state = -5, action) => {
+export const counter = (state = 0, action) => {
     switch(action.type) {
-        case 'SET_COUNTER': return state+1;
+        case 'SET_COUNTER': return state+5;
         default: return state;
     }
 };

@@ -2,22 +2,31 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BusinessesList from './BusinessesList';
-import { setGoHome, setTerm, fetchApi, setTermNear, setOpenYelp } from '../actions';
+import { setGoHome, setTerm, fetchApi, setTermNear, setOpenYelp, setHeader } from '../actions';
 import '../Style/Yelp.css';
 import MapContainer from './MapContainer';
 
 class Yelp extends Component {
     componentDidMount(){
+        this.props.setHeader(true)
         this.props.fetchApi(this.props.term, this.props.termNear);
     }
     onSubmit = event => {
         event.preventDefault(); 
-        //this.props.setHeader(true)
+        this.props.setHeader(true)
         this.props.fetchApi(this.props.term, this.props.termNear);
     }
     onSearch = () => {
-        //this.props.setHeader(true)
         this.props.fetchApi(this.props.term, this.props.termNear);
+        this.props.setHeader(true)
+    }
+    onInputChangeTerm = event => {
+        this.props.setTerm(event.target.value);
+        this.props.setHeader(false);
+    }
+    onInputChangeTermNear = event => {
+        this.props.setTermNear(event.target.value);
+        this.props.setHeader(false);
     }
     render() {
         console.log('businesses in yelp',this.props.businesses)
@@ -34,7 +43,7 @@ class Yelp extends Component {
                                     <input
                                         type="text"
                                         value={this.props.term}
-                                        onChange={event => this.props.setTerm(event.target.value)}
+                                        onChange={this.onInputChangeTerm}
                                         placeholder="Find burgers, barbers, spas, handymen..."
                                     />
                                 </div>
@@ -42,7 +51,7 @@ class Yelp extends Component {
                                     <input
                                         type="text"
                                         value={this.props.termNear}
-                                        onChange={event => this.props.setTermNear(event.target.value)}
+                                        onChange={this.onInputChangeTermNear}
                                         placeholder="Near..."
                                     />
                                     <i className="search link icon search-icon-yelp" style={{color:"white", backgroundColor:"#f43939"}}onClick={()=>this.onSearch()}></i>
@@ -74,4 +83,4 @@ const mapStateToProps = state => {
         businesses: state.businesses
     }
 }
-export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp})(Yelp);
+export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp, setHeader})(Yelp);

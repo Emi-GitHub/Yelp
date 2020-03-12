@@ -27,8 +27,8 @@ export const fetchApi = (term, termNear) => async dispatch => {
         payload: response.data.region.center.longitude
     })
     dispatch({
-        type: 'SET_HEADER',
-        payload: true
+        type: 'SET_CURRENT_PAGE',
+        payload: 1
     })
 };
 export const setTerm = value => {
@@ -49,12 +49,12 @@ export const setOpenYelp = value => {
         payload: value
     }
 }
-/*export const setHeader = value => {
+export const setHeader = value => {
     return {
         type: 'SET_HEADER',
         payload: value
     }
-}*/
+}
 export const setGoHome = value => {
     return {
         type: 'SET_GO_HOME',

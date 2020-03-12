@@ -10,9 +10,13 @@ class Pagination extends Component {
         for(let i = 1; i <= Math.ceil(totalPosts/this.props.postPerPage); i++) pageNumbers.push(i);
         return (
             <div className="ui horizontal list item-list">
-                {pageNumbers.map((number, i) => (
-                        <div className="item" key={number} i={i+1}>
-                        <div onClick={()=>this.props.setCurrentPage(number)} className="list-number">{number}</div>
+                {pageNumbers.map((number) => (
+                        <div className="item" key={number}>
+                        <div 
+                            onClick={()=>this.props.setCurrentPage(number)} 
+                            className="list-number">
+                                {number}
+                        </div>
                 </div> ))}
             </div>
         )
