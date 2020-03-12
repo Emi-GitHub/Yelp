@@ -29,7 +29,6 @@ class Yelp extends Component {
         this.props.setHeader(false);
     }
     render() {
-        console.log('businesses in yelp',this.props.businesses)
         return (
             <div className="background-yelp">
                 <div className="background-margins">
@@ -38,7 +37,7 @@ class Yelp extends Component {
                             <div className="child-1-search">
                                 <img src="./yelp.png" alt="yelp icon" className="yelp-icon-yelp" />
                             </div>
-                            <div child-2-search>
+                            <div className="child-2-search">
                                 <div className="ui big icon input search-input-yelp">
                                     <input
                                         type="text"

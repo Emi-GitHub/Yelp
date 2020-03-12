@@ -5,9 +5,6 @@ import _ from 'lodash';
 import { setCounter } from '../actions';
 
 class BusinessesItem extends Component {
-    /*componentDidMount(){
-        this.props.setCounter()
-    }*/
     onDivClick = () => {
         return <a 
             href={this.props.item.url} 
@@ -29,14 +26,13 @@ class BusinessesItem extends Component {
             var star = [];
             while(i<this.props.item.rating){
                 if(_.isEqual(this.props.item.rating, i+0.5)) {
-                    star[i] = <i className="star icon star-icon"></i>
+                    star[i] = <i className="star icon star-icon" key={i}></i>
                 }
-                else star[i] = <i className="star icon star-icon" style={{background:"#f43939"}}></i>
+                else star[i] = <i className="star icon star-icon" style={{background:"#f43939"}} key={i}></i>
                 i++;
             }
             return star;
         }
-        console.log('counter', this.props.counter)
         return (
             <div className="item-cover parent" onClick={()=> window.open(this.props.item.url, "_blank")}>
                 <div className="child-1">

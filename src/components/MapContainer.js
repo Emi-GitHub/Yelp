@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 class MapContainer extends Component {
   render() {
-    const list = this.props.businesses.map( (item) => {
+    const list = this.props.businesses.map( (item,i) => {
       return <Marker
               title="Location"
               name={'Current location'}
             id={1}
-            position={{lat: item.coordinates.latitude, lng: item.coordinates.longitude}} 
+            position={{lat: item.coordinates.latitude, lng: item.coordinates.longitude}}
+            key={i} 
             />
       
   });
@@ -23,7 +24,6 @@ class MapContainer extends Component {
             }}
             zoom={12}>
               {list}
-              <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
           </Map>
     );
   }
