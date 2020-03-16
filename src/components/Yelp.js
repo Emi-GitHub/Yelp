@@ -29,6 +29,12 @@ class Yelp extends Component {
         this.props.setHeader(false);
     }
     render() {
+        const notFound = () =>{
+            return (
+                <p className="not-found">Not found!</p>
+            )
+        }
+        console.log(this.props.businesses.length)
         return (
             <div className="background-yelp">
                 <div className="background-margins">
@@ -62,7 +68,7 @@ class Yelp extends Component {
                 {this.props.goHome ? <Redirect to="Yelp" /> : null}
                 <div className="yelp-parent">
                     <div className="yelp-child-1">
-                        <BusinessesList />
+                        {this.props.businesses.length === 0 ? notFound() : <BusinessesList /> }
                     </div>
                     <div className="yelpchild-2" style={{width:"40%", position:"fixed", right:"0", top:"130px"}}>
                         <MapContainer />
@@ -79,7 +85,7 @@ const mapStateToProps = state => {
         openYelp: state.openYelp,
         term: state.term,
         termNear: state.termNear,
-        businesses: state.businesses
+        businesses: state.businesses,
     }
 }
 export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp, setHeader})(Yelp);

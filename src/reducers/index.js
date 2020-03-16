@@ -10,6 +10,7 @@ import { currentPage } from './Reducer';
 import { postPerPage } from './Reducer';
 import { termNear } from './Reducer';
 import { counter } from './Reducer';
+import { notFound } from './Reducer';
 
 export default combineReducers ({
     term,
@@ -22,5 +23,6 @@ export default combineReducers ({
     currentPage,
     postPerPage,
     termNear,
-    counter
+    counter,
+    notFound
 })

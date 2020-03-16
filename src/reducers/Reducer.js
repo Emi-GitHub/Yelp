@@ -64,3 +64,9 @@ export const counter = (state = 0, action) => {
         default: return state;
     }
 };
+export const notFound = (state = false, action) => {
+    switch(action.type) {
+        case 'SET_NOT_FOUND': return state;
+        default: return state;
+    }
+};

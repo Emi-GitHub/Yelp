@@ -54,3 +54,12 @@
   right: 20px !important;
   background-color: orange !important;
 }
+/*phones*/
+@media screen and (max-width: 500px){
+}
+/*tablets*/
+@media screen and (min-width: 501px){
+}
+/*desktops*/
+@media screen and (min-width: 850px){
+}
