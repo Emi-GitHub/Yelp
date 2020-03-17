@@ -24,7 +24,7 @@ class BusinessesList extends Component {
             return <BusinessesItem item={item} key={item.id} i={i+x}/>;
         });
         return (
-            <div>
+            <div className="header">
                 {this.props.header ? <h1 className="header">Best {this.props.term} in {this.props.termNear}</h1> : null }
                 {list}
                 <Pagination />
