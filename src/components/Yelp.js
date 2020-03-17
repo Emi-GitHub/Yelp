@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setTerm, fetchApi, setTermNear, setOpenYelp, setHeader} from '../actions';
 import BusinessesList from './BusinessesList';
-import { setGoHome, setTerm, fetchApi, setTermNear, setOpenYelp, setHeader, setLoader, setLength } from '../actions';
-import '../Style/Yelp.css';
 import MapContainer from './MapContainer';
+import '../Style/Yelp.css';
 
 class Yelp extends Component {
     componentDidMount(){
         this.props.setHeader(true)
         this.props.fetchApi(this.props.term, this.props.termNear);
     }
-    onSubmit = event => {
-        event.preventDefault(); 
-        this.props.setHeader(true)
-        this.props.fetchApi(this.props.term, this.props.termNear);
-    }
     onSearch = () => {
-        this.props.setLength()
         this.props.fetchApi(this.props.term, this.props.termNear);
         this.props.setHeader(true)
     }
@@ -31,16 +25,12 @@ class Yelp extends Component {
     }
     render() {
         const notFound = () =>{
-           // this.props.setLoader('nothing')
-            return (
-                <p className="not-found">Not found!</p>
-            )
+            return <p className="not-found">Not found!</p>
         }
-        console.log(this.props.businessesLength)
         return (
             <div className="background-yelp">
                 <div className="background-margins">
-                    <form onSubmit={this.onSubmit} className="ui form">
+                    <form className="ui form">
                         <div className="parent-search">
                             <div className="child-1-search">
                                 <img src="./yelp.png" alt="yelp icon" className="yelp-icon-yelp" />
@@ -68,16 +58,16 @@ class Yelp extends Component {
                     </form>
                 </div>
                 {this.props.goHome ? <Redirect to="Yelp" /> : null}
-                    <div className="yelp-parent" >
-                        <div className="yelp-child-1">
-                            <div>
-                                {this.props.businessesLength === 0 ? notFound() : <BusinessesList /> }
-                            </div>
-                        </div>
-                        <div /*style={{width:"40%", position:"fixed", right:"0", top:"130px"}}*/>
-                            <MapContainer />
+                <div className="yelp-parent" >
+                    <div className="yelp-child-1">
+                        <div>
+                            {this.props.businessesLength === 0 ? notFound() : <BusinessesList /> }
                         </div>
                     </div>
+                    <div >
+                        <MapContainer />
+                    </div>
+                </div>
             </div>
         )
     }
@@ -94,4 +84,4 @@ const mapStateToProps = state => {
         businessesLength: state.businessesLength
     }
 }
-export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp, setHeader, setLoader, setLength})(Yelp);
+export default connect(mapStateToProps, {setTerm, fetchApi, setTermNear, setOpenYelp, setHeader})(Yelp);

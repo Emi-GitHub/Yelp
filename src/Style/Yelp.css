@@ -33,9 +33,6 @@
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    /*.parent-search {
-        display: flex;
-    }*/
     .child-1-search {
         display: flex;
         align-items: center;
@@ -46,7 +43,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
     }
     .yelp-parent {
         display: flex;

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BusinessesItem from './BusinessesItem';
-import '../Style/BusinessesList.css';
 import Pagination from './Pagination';
-import { setCounter } from '../actions';
+import '../Style/BusinessesList.css';
 
 class BusinessesList extends Component {
     render() {
@@ -41,4 +40,4 @@ const mapStateToProps = state => ({
     changeCurrentPage: state.changeCurrentPage,
     postPerPage: state.postPerPage
 });
-export default connect(mapStateToProps, {setCounter})(BusinessesList);
+export default connect(mapStateToProps)(BusinessesList);

@@ -19,9 +19,6 @@ export const fetchApi = (term, termNear) => async dispatch => {
         payload: response.data.businesses.length,
     })
     dispatch({
-        type: 'SET_LOADER',
-      });
-    dispatch({
         type: 'FETCH_API',
         payload: response.data.businesses,
     });
@@ -62,12 +59,6 @@ export const setHeader = value => {
         payload: value
     }
 }
-export const setGoHome = value => {
-    return {
-        type: 'SET_GO_HOME',
-        payload: value
-    }
-}
 export const setCurrentPage = value => {
     return {
         type: 'SET_CURRENT_PAGE',
@@ -78,22 +69,5 @@ export const setPostPerPage = value => {
     return {
         type: 'SET_POST_PER_PAGE',
         payload: value
-    }
-}
-export const setCounter = () => {
-    return {
-        type: 'SET_COUNTER',
-    }
-}
-export const setLoader = value => {
-    return {
-        type: 'SET_LOADER',
-        payload: value
-    }
-}
-export const setLength = () => {
-    return {
-        type: 'SET_LENGTH',
-        payload: 0,
     }
 }

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { setTerm, fetchApi, setOpenYelp, setTermNear} from '../actions';
 import '../Style/SearchBar.css';
 
 class SearchBar extends Component {
-    onSubmit = event => {
-        event.preventDefault(); 
-        this.props.setOpenYelp(true);
-    }
     render() {
         return (
             <div className="background">
-                <form onSubmit={this.onSubmit} className="ui form">
+                <form className="ui form">
                     <div className="yelp-icon-div">
                         <img src="./yelp.png" alt="yelp icon" className="yelp-icon"/>
                     </div>

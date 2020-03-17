@@ -17,7 +17,8 @@ class Pagination extends Component {
                             className="list-number">
                                 {number}
                         </div>
-                </div> ))}
+                </div> 
+                ))}
             </div>
         )
     }

@@ -10,7 +10,6 @@ import { currentPage } from './Reducer';
 import { postPerPage } from './Reducer';
 import { termNear } from './Reducer';
 import { counter } from './Reducer';
-import { notFound } from './Reducer';
 import { loader } from './Reducer';
 import { businessesLength } from './Reducer';
 
@@ -26,7 +25,6 @@ export default combineReducers ({
     postPerPage,
     termNear,
     counter,
-    notFound,
     loader,
     businessesLength
 })

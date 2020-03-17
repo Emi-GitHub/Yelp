@@ -64,12 +64,6 @@ export const counter = (state = 0, action) => {
         default: return state;
     }
 };
-export const notFound = (state = false, action) => {
-    switch(action.type) {
-        case 'SET_NOT_FOUND': return action.payload;
-        default: return state;
-    }
-};
 export const loader = (state = 'ui active centered inline loader', action) => {
     switch (action.type) {
         case 'SET_LOADER': return 'nothing';
