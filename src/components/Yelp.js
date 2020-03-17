@@ -74,7 +74,7 @@ class Yelp extends Component {
                                 {this.props.businessesLength === 0 ? notFound() : <BusinessesList /> }
                             </div>
                         </div>
-                        <div className="yelp-child-2" /*style={{width:"40%", position:"fixed", right:"0", top:"130px"}}*/>
+                        <div /*style={{width:"40%", position:"fixed", right:"0", top:"130px"}}*/>
                             <MapContainer />
                         </div>
                     </div>
