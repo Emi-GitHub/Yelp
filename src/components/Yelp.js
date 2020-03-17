@@ -70,7 +70,7 @@ class Yelp extends Component {
                 {this.props.goHome ? <Redirect to="Yelp" /> : null}
                     <div className="yelp-parent" >
                         <div className="yelp-child-1">
-                            <div className={this.props.loader}>
+                            <div>
                                 {this.props.businessesLength === 0 ? notFound() : <BusinessesList /> }
                             </div>
                         </div>
