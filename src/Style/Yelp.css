@@ -123,6 +123,9 @@
     }
     .yelp-child-2 {
         width: 40% !important;
+        position: fixed;
+        right: 0;
+        top: 130px;
     }
     
 }
