@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BusinessesList from './BusinessesList';
-import { setGoHome, setTerm, fetchApi, setTermNear, setOpenYelp, setHeader } from '../actions';
+import { setGoHome, setTerm, fetchApi, setTermNear, setOpenYelp, setHeader, setLoader, setLength } from '../actions';
 import '../Style/Yelp.css';
 import MapContainer from './MapContainer';
 
@@ -17,6 +17,7 @@ class Yelp extends Component {
         this.props.fetchApi(this.props.term, this.props.termNear);
     }
     onSearch = () => {
+        this.props.setLength()
         this.props.fetchApi(this.props.term, this.props.termNear);
         this.props.setHeader(true)
     }
@@ -30,11 +31,12 @@ class Yelp extends Component {
     }
     render() {
         const notFound = () =>{
+           // this.props.setLoader('nothing')
             return (
                 <p className="not-found">Not found!</p>
             )
         }
-        console.log(this.props.businesses.length)
+        console.log(this.props.businessesLength)
         return (
             <div className="background-yelp">
                 <div className="background-margins">
@@ -66,14 +68,16 @@ class Yelp extends Component {
                     </form>
                 </div>
                 {this.props.goHome ? <Redirect to="Yelp" /> : null}
-                <div className="yelp-parent">
-                    <div className="yelp-child-1">
-                        {this.props.businesses.length === 0 ? notFound() : <BusinessesList /> }
+                    <div className="yelp-parent" >
+                        <div className="yelp-child-1">
+                            <div className={this.props.loader}>
+                                {this.props.businessesLength === 0 ? notFound() : <BusinessesList /> }
+                            </div>
+                        </div>
+                        <div className="yelp-child-2" /*style={{width:"40%", position:"fixed", right:"0", top:"130px"}}*/>
+                            <MapContainer />
+                        </div>
                     </div>
-                    <div className="yelpchild-2" style={{width:"40%", position:"fixed", right:"0", top:"130px"}}>
-                        <MapContainer />
-                    </div>
-                </div>
             </div>
         )
     }
@@ -86,6 +90,8 @@ const mapStateToProps = state => {
         term: state.term,
         termNear: state.termNear,
         businesses: state.businesses,
+        loader: state.loader,
+        businessesLength: state.businessesLength
     }
 }
-export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp, setHeader})(Yelp);
+export default connect(mapStateToProps, {setTerm, fetchApi, setGoHome,  setTermNear, setOpenYelp, setHeader, setLoader, setLength})(Yelp);

@@ -1,0 +1,42 @@
+/*phones*/
+@media screen and (max-width: 500px){
+    .mapa-div {
+        width: 100%;
+        right: 0;
+        top: 130px;
+    }
+}
+/*tablets*/
+@media screen and (min-width: 501px){
+    .mapa {
+        padding-bottom: 10px !important;
+        width: 550px !important;
+        height: 750px !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    }
+    /*.mapa-div {
+        padding-top: 400px;
+        padding-bottom: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }*/
+}
+/*desktops*/
+@media screen and (min-width: 850px){
+    /*.mapa-div {
+        width: 40% !important;
+        position: fixed;
+        right: 0;
+        top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }*/
+    .mapa {
+        width: 650px !important; 
+        height: 650px !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    }
+}

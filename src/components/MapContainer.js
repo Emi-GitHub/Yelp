@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import '../Style/Map.css';
 
 class MapContainer extends Component {
   render() {
@@ -15,16 +16,18 @@ class MapContainer extends Component {
       
   });
     return (
-          <Map 
-            google={this.props.google}
-            style={{width:"650px", height:"650px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}
-            center={{
-              lat: this.props.lat, 
-              lng: this.props.lng 
-            }}
-            zoom={12}>
-              {list}
-          </Map>
+          <div className="yelp-child-2">
+              <Map 
+            className="mapa"
+              google={this.props.google}
+              center={{
+                lat: this.props.lat, 
+                lng: this.props.lng 
+              }}
+              zoom={12}>
+                {list}
+            </Map>
+          </div>
     );
   }
 }

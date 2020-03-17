@@ -66,7 +66,19 @@ export const counter = (state = 0, action) => {
 };
 export const notFound = (state = false, action) => {
     switch(action.type) {
-        case 'SET_NOT_FOUND': return state;
+        case 'SET_NOT_FOUND': return action.payload;
+        default: return state;
+    }
+};
+export const loader = (state = 'ui active centered inline loader', action) => {
+    switch (action.type) {
+        case 'SET_LOADER': return 'nothing';
+        default: return state;
+    }
+  };
+  export const businessesLength = (state = 0, action) => {
+    switch(action.type) {
+        case 'SET_LENGTH': return action.payload;
         default: return state;
     }
 };

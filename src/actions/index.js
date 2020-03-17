@@ -15,6 +15,13 @@ export const fetchApi = (term, termNear) => async dispatch => {
         headers: { "Authorization": `Bearer ${API_KEY}`} 
     });
     dispatch({
+        type: 'SET_LENGTH',
+        payload: response.data.businesses.length,
+    })
+    dispatch({
+        type: 'SET_LOADER',
+      });
+    dispatch({
         type: 'FETCH_API',
         payload: response.data.businesses,
     });
@@ -76,5 +83,17 @@ export const setPostPerPage = value => {
 export const setCounter = () => {
     return {
         type: 'SET_COUNTER',
+    }
+}
+export const setLoader = value => {
+    return {
+        type: 'SET_LOADER',
+        payload: value
+    }
+}
+export const setLength = () => {
+    return {
+        type: 'SET_LENGTH',
+        payload: 0,
     }
 }
